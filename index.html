@@ -172,8 +172,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="我的第一篇hexo博客"><a href="#我的第一篇hexo博客" class="headerlink" title="我的第一篇hexo博客"></a>我的第一篇hexo博客</h2><h2 id="hexo个人博客部署教程"><a href="#hexo个人博客部署教程" class="headerlink" title="hexo个人博客部署教程"></a>hexo个人博客部署教程</h2><p>(1)安装Node.js<br>(2)安装git<br>(3)安装cnpm<br>(4)安装hexo<br>(5)初始化、启动并新建博客<br>(6)部署到github</p>
-
+        <h1 id="hexo搭建博客并部署到github"><a href="#hexo搭建博客并部署到github" class="headerlink" title="hexo搭建博客并部署到github"></a>hexo搭建博客并部署到github</h1><h2 id="1-下载并安装node-js"><a href="#1-下载并安装node-js" class="headerlink" title="(1)下载并安装node.js"></a>(1)下载并安装node.js</h2><pre><code>可到国内镜像站快速下载
+命令行：node -v / npm -v //查看是否安装成功</code></pre><h2 id="2-下载并安装git"><a href="#2-下载并安装git" class="headerlink" title="(2)下载并安装git"></a>(2)下载并安装git</h2><pre><code>安装好后，可直接在git bash里执行后续命令操作</code></pre><h2 id="3-安装淘宝cnpm-可使后续步骤更快"><a href="#3-安装淘宝cnpm-可使后续步骤更快" class="headerlink" title="(3)安装淘宝cnpm //可使后续步骤更快"></a>(3)安装淘宝cnpm //可使后续步骤更快</h2><pre><code>npm install -g cnpm --registry==https://registry.npm.taobao.org
+cnpm / cnpm -v //查看是安装成功</code></pre><h2 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="(4)安装hexo"></a>(4)安装hexo</h2><pre><code>cnpm install hexo-cli -g //安装
+hexo -v //查看
+mkdir PersonalBlog //建文件夹
+cd PersonBlog //进入文件夹
+hexo init //初始化
+hexo s //启动博客生成本地访问地址
+hexo new n “hexo博客部署”
+cd source/_posts //到博客目录
+vim filename //撰写博客
+hexo clean //清理
+hexo g //生成</code></pre><h2 id="5-免费部署到github"><a href="#5-免费部署到github" class="headerlink" title="(5)免费部署到github"></a>(5)免费部署到github</h2><pre><code>设置SSH key让github识别计算机
+    ssh-keygen -t rsa -C &quot;email@&quot;//到指定目录创建 cd ~/.shh
+    GitHub的SSH Keys中添加id_rsa.pub中内容
+新建版本库 //名字不许为longyuncqu.github.io
+vim _config.yml //更改配置文件
+    /**
+    deploy:
+    type: git
+    repo: https://github.com/longyuncqu/longyuncqu.github.io.git
+    branch: master
+    */
+cnpm install hexo-deployer-git //安装工具
+hexo d //发布到github
+hexo g -d //生成后发布</code></pre>
       
 
       
